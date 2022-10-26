@@ -6,22 +6,52 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
+// -------------------------------------------------------------------
+// Первый способ (через "FOR")
+// -------------------------------------------------------------------
+let ingredients__list = document.getElementById('ingredients');
 
-// let ulList = document.getElementById('ingredients');
+const elements = [];
 
-// const foodIngredients = ingredients.forEach(ingredient => {
-//   let items = document.createElement('li');
-//   items.innerHTML = ingredient;
-//   ulList.append(items);
-//   parent.append(...items);
+for (let i = 0; i < ingredients.length; i += 1) {
+  const ingredients__item = document.createElement('li');
+  ingredients__item.classList.add('item');
+  ingredients__item.textContent = ingredients[i];
+
+  elements.push(ingredients__item);
+}
+
+ingredients__list.append(...elements);
+
+// -------------------------------------------------------------------
+// Второй способ (через "MAP")
+// -------------------------------------------------------------------
+// let ingredients__list = document.getElementById('ingredients');
+
+// const elements = ingredients.map(ingredient => {
+//   const ingredients__item = document.createElement('li');
+//   ingredients__item.classList.add('item');
+//   ingredients__item.textContent = ingredient;
+
+//   return ingredients__item;
 // });
 
-// console.log(foodIngredients);
+// ingredients__list.append(...elements);
 
-// const ulEl = document.querySelector('#ingredients');
+// -------------------------------------------------------------------
+// Третий способ (через функцию)
+// -------------------------------------------------------------------
+// let ingredients__list = document.querySelector('#ingredients');
 
-// const list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+// const createIngredients = ingredientsList => {
+//   return ingredientsList.map(ingredient => {
+//     const ingredients__item = document.createElement('li');
+//     ingredients__item.classList.add('item');
+//     ingredients__item.textContent = ingredient;
 
-// ulEl.innerHTML = list;
+//     return ingredients__item;
+//   });
+// };
 
-// console.log(ulEl);
+// const elements = createIngredients(ingredients);
+// ingredients__list.append(...elements);
