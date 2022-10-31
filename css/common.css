@@ -27,3 +27,7 @@ img {
   display: inline-flex;
   width: 666px;
 }
+
+.newElList {
+  list-style: none;
+}

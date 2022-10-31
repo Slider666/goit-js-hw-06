@@ -15,9 +15,20 @@ const images = [
 
 const gallaryList = document.querySelector('.gallery');
 
-images.forEach(image => {
-  gallaryList.insertAdjacentHTML(
-    'beforeEnd',
-    `<li><img src = "${image.url}" alt = "${image.alt}"/></li>`
+// images.forEach(image => {
+//   gallaryList.insertAdjacentHTML(
+//     'beforeEnd',
+//     `<li><img src = "${image.url}" alt = "${image.alt}"/></li>`
+//   );
+// });
+
+const newGallary = images.map(image => {
+  const newEl = document.createElement('li');
+  newEl.classList.add('newElList');
+  newEl.insertAdjacentHTML(
+    'afterbegin',
+    `<img class="img" src = "${image.url}" alt = "${image.alt}"/>`
   );
+  return newEl;
 });
+gallaryList.append(...newGallary);
